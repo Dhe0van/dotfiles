@@ -1,5 +1,8 @@
-PROMPT="%n@%F{blue}%m%f %F{yellow}%/%f 
-%F{red}❯%f "
+source ~/.zsh/git-prompt.zsh/git-prompt.zsh
+source ~/.zsh/git-prompt.zsh/examples/multiline.zsh
+
+# PROMPT="%n@%F{blue}%m%f %F{yellow}%/%f
+# %F{red}❯%f "
 
 precmd(){
 		precmd() {
@@ -82,7 +85,6 @@ ZSH_THEME=""
 plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	# git-prompt
 ) 
 
 source $ZSH/oh-my-zsh.sh
@@ -152,8 +154,9 @@ alias ga="git add"
 alias gb="git branch"
 alias gl="git log"
 alias glp="git log -p"
-alias gc="git commit"
+alias gc="git commit -m"
 alias gce="git commit --allow-empty-message -m ''"
+alias gca="git commit -a -m"
 alias gp="git push"
 alias gs="git switch"
 alias gst="git status"
