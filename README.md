@@ -4,8 +4,10 @@ list of my own dotfiles using [rcm](https://thoughtbot.com/blog/rcm-for-rc-files
 # List
 * alacritty
 * bash
+* fish
 * i3
 * polybar
 * rofi
 * vim
 * zsh
+
