@@ -11,6 +11,8 @@ zstyle :compinstall filename '/home/orang/.zshrc'
 # Zsh git prompt
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
 source ~/.zsh/git-prompt.zsh/examples/multiline.zsh
+# Starship cross-platform prompt
+# eval "$(starship init zsh)"
 
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

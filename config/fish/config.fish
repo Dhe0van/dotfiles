@@ -1,51 +1,53 @@
-# Package manager
-function pacsyu; sudo pacman -Syu; end
-function pacs; sudo pacman -S $argv; end
-function pacu; sudo pacman -U $argv; end
-function pacr; sudo pacman -R $argv; end
-function pacorphan; sudo pacman -Rs (pacman -Qqtd); end
+# Starship prompt
+starship init fish | source
+
+# Package Manager aliases
+alias pacsyu="sudo pacman -Syu"
+alias pacs="sudo pacman -S"
+alias pacu="sudo pacman -U"
+alias pacr="sudo pacman -R"
+alias pacorphan="sudo pacman -Rs (pacman -Qqtd)"
 
 # Directory
-function uri; cd ~/Code/URI; end
-function docs; cd ~/Code/Docs; end
+alias uri="~/Code/URI"
+alias zshrc="vim ~/.zshrc"
+alias i3="vim ~/.config/i3/config"
+alias alacritty="vim ~/.config/alacritty/alacritty.yml"
+alias picom="sudo vim /etc/xdg/picom.conf"
+alias docs="cd ~/Code/Docs"
+alias vimrc="vim ~/.vimrc"
+alias polybar="vim ~/.config/polybar/config"
+alias fishconf="vim ~/.config/fish/config.fish"
+alias savefish="source ~/.config/fish/config.fish"
 
-# Edit
-function zshrc; vim ~/.zshrc; end
-function i3; vim ~/.config/i3/config; end
-function alacritty; vim ~/.config/alacritty/alacritty.yml; end
-function picom; sudo vim /etc/xdg/picom.conf; end
-function vimrc; vim ~/.vimrc; end
-function polybar; vim ~/.config/polybar/config; end
-function fishconf; vim ~/.config/fish/config.fish; end
-function savefish; source ~/.config/fish/config.fish; end
+# Another
+alias savez="source ~/.zshrc"
+alias 8="ping 8.8.8.8"
+alias net="systemctl status NetworkManager"
 
 # Hardware
-function cpuspd; watch -n.5 \"cat /proc/cpuinfo | grep -i mhz\"; end
+alias cpuspd="watch -n.5 \"cat /proc/cpuinfo | grep -i mhz\""
 
-# More default command
-function l; ls -l --color=auto $argv; end
-function la; ls -ls --color=auto $argv; end
-function v; vim $argv; end
-function c; clear; end
-function x; exit; end
-function free; free -h $argv; end
+# Changed default command
+alias ls="ls -lh --color=auto"
+alias lsa="ls -a --color=auto"
+alias v="vim"
+alias x="exit"
+alias c="clear"
+alias free="free -h"
 
 # Git
-function g; git $argv; end
-function ga; git add $argv; end
-function gb; git branch $argv; end
-function gl; git log $argv; end
-function glp; git log -p $argv; end
-function glg; git log --color --oneline --graph $argv; end
-function gcm; git commit -m $argv; end
-function gce; git commit --allow-empty-message -m ''; end
-function gca; git commit -am $argv; end
-function gcl; git clone $argv; end
-function gp; git push $argv; end
-function gs; git switch $argv; end
-function gst; git status $argv; end
-function gr; git restore --staged $argv; end
-
-# Random command
-function 8; ping 8.8.8.8 $argv; end
-function net; systemctl status NetworkManager $argv; end
+alias g="git"
+alias ga="git add"
+alias gb="git branch"
+alias gl="git log"
+alias glp="git log -p"
+alias glg="git log --color --oneline --graph"
+alias gc="git commit -m"
+alias gce="git commit --allow-empty-message -m ''"
+alias gca="git commit -a -m"
+alias gcl="git clone"
+alias gp="git push"
+alias gs="git switch"
+alias gst="git status"
+alias gr="git restore --staged"

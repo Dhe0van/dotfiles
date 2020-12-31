@@ -50,7 +50,7 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty -e fish
+bindsym $mod+Return exec alacritty -e zsh
 
 # kill focused window
 bindsym $mod+Shift+q kill
