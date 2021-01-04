@@ -5,18 +5,42 @@ set noshowmode
 set noswapfile
 set smartindent
 set incsearch
-set tabstop=4 softtabstop=4
+set tabstop=2 softtabstop=4 shiftwidth=4 noexpandtab
 set shiftwidth=4
 set guifont=RobotoMono\ 12
 set t_Co=256
 set background=dark
+" set list lcs=tab:\|\
 
 
+" Custom Keybinding
+" Inser mode
+imap <C-e> <esc>$i<right>
+imap <C-a> <esc>0i
 
-" Automatically closing braces
+" Command Line mode
+cmap <C-t> tabnew<return>
+cmap <C-w> tabc<return>
+cmap <C-l> tabn<return>
+cmap <C-h> tabp<return>
+cmap <C-k> tabr<return>
+cmap <C-j> tabl<return>
+cmap <C-s> source %<return>
+
+
+" Automatically Enter, indent, add closing 
 inoremap {<CR> {<CR>}<Esc>ko<tab>
-inoremap [<CR> [<CR>]<Esc>ko<tab>
 inoremap (<CR> (<CR>)<Esc>ko<tab>
+inoremap [<CR> [<CR>]<Esc>ko<tab>
+
+" Automatically add closing
+inoremap [<Space><Space> []<Esc>i
+inoremap {<Space><Space> {}<Esc>i
+inoremap (<Space><Space> ()<Esc>i
+inoremap <<Space><Space> <><Esc>i
+
+inoremap jj <Esc>
+
 
 " plugins list
 call plug#begin('~/.vim/plugged')
@@ -28,6 +52,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'cocopon/pgmnt.vim'
+Plug 'mattn/emmet-vim'
+Plug 'turbio/bracey.vim'
 
 call plug#end()
 
@@ -75,6 +101,12 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 
+" emmet vim
+let g:user_emmet_leader_key='<C-K>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+
+
 " Color
 hi Comment ctermfg=109
-

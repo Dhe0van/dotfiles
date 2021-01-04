@@ -17,12 +17,13 @@ source ~/.zsh/git-prompt.zsh/examples/multiline.zsh
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.zsh/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 
 # Custom propmt
 # PROMPT="%n@%F{blue}%m%f %F{yellow}%/%f
 # %F{red}❯%f "
 
-# Automatically do double enter after entering the prompt
+# Automatically do enter after entering the prompt
 precmd(){
         precmd() {
                 echo
@@ -36,17 +37,24 @@ alias pacsyu="sudo pacman -Syu"
 alias pacs="sudo pacman -S"
 alias pacu="sudo pacman -U"
 alias pacr="sudo pacman -R"
+alias pacrcn="sudo pacman -Rcn"
 alias pacorphan="sudo pacman -Rs $(pacman -Qqtd)"
 
 # Directory
-alias uri="~/Code/URI"
+alias uri="cd ~/Code/URI"
+alias docs="cd ~/Code/Docs"
+alias dots="cd ~/.dotfiles"
+alias pict="cd ~/Pictures"
+alias dl="cd ~/Downloads"
+
+# Edit File
 alias zshrc="vim ~/.zshrc"
 alias i3="vim ~/.config/i3/config"
 alias alacritty="vim ~/.config/alacritty/alacritty.yml"
 alias picom="sudo vim /etc/xdg/picom.conf"
-alias docs="cd ~/Code/Docs"
 alias vimrc="vim ~/.vimrc"
 alias polybar="vim ~/.config/polybar/config"
+
 
 # Another
 alias savez="source ~/.zshrc"
@@ -71,11 +79,14 @@ alias gb="git branch"
 alias gl="git log"
 alias glp="git log -p"
 alias glg="git log --color --oneline --graph"
-alias gc="git commit -m"
+alias gc="git commit"
+alias gcm="git commit -m"
 alias gce="git commit --allow-empty-message -m ''"
-alias gca="git commit -a -m"
+alias gca="git commit -a"
+alias gcam="git commit -am"
 alias gcl="git clone"
-alias gp="git push"
+alias gpsh="git push"
+alias gpull="git pull"
 alias gs="git switch"
 alias gst="git status"
 alias gr="git restore --staged"
