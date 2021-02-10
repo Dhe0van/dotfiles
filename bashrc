@@ -47,3 +47,5 @@ alias uri="cd ~/Code/URI"
 
 # i#
 alias logout="i3-msg exit"
+export PATH=$PATH:~/.local/bin/
+alias goto=". goto"

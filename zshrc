@@ -30,15 +30,12 @@ precmd(){
         }
 }
 
-
-
 # Package Manager aliases
 alias pacsyu="sudo pacman -Syu"
 alias pacs="sudo pacman -S"
 alias pacu="sudo pacman -U"
 alias pacr="sudo pacman -R"
 alias pacrcn="sudo pacman -Rcn"
-alias pacorphan="sudo pacman -Rs $(pacman -Qqtd)"
 
 # Directory
 alias uri="cd ~/Code/URI"
@@ -49,33 +46,41 @@ alias dl="cd ~/Downloads"
 
 # Edit File
 alias zshrc="vim ~/.zshrc"
-alias i3="vim ~/.config/i3/config"
-alias alacritty="vim ~/.config/alacritty/alacritty.yml"
-alias picom="sudo vim /etc/xdg/picom.conf"
+alias i3conf="vim ~/.config/i3/config"
+alias alacrittyconf="vim ~/.config/alacritty/alacritty.yml"
+alias picomconf="sudo vim /etc/xdg/picom.conf"
 alias vimrc="vim ~/.vimrc"
-alias polybar="vim ~/.config/polybar/config"
-
+alias polybarconf="vim ~/.config/polybar/config"
+alias kittyconf="vim ~/.config/kitty/kitty.conf"
 
 # Another
 alias savez="source ~/.zshrc"
 alias 8="ping 8.8.8.8"
 alias net="systemctl status NetworkManager"
+alias svg="feh --conversion-timeout 1"
+alias enofetch="neofetch"
 
 # Hardware
 alias cpuspd="watch -n.5 \"cat /proc/cpuinfo | grep -i mhz\""
+alias brightness="brightnessctl -d amdgpu_bl0 set"
 
 # Changed default command
-alias ls="ls -lh --color=auto"
-alias lsa="ls -a --color=auto"
+alias ls="ls -l --color=auto"
+alias lsa="ls -a"
 alias v="vim"
 alias x="exit"
 alias c="clear"
 alias free="free -h"
+alias py="python"
+alias cat="bat"
+alias find="fd"
+alias ps="procs"
 
 # Git
 alias g="git"
 alias ga="git add"
 alias gb="git branch"
+alias gbd="git branch -d"
 alias gl="git log"
 alias glp="git log -p"
 alias glg="git log --color --oneline --graph"
@@ -85,7 +90,7 @@ alias gce="git commit --allow-empty-message -m ''"
 alias gca="git commit -a"
 alias gcam="git commit -am"
 alias gcl="git clone"
-alias gpsh="git push"
+alias gpush="git push"
 alias gpull="git pull"
 alias gs="git switch"
 alias gst="git status"
@@ -96,5 +101,5 @@ alias gr="git restore --staged"
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-
-
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin

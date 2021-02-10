@@ -94,13 +94,26 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
-label-layout = %layout%
+; label-layout = %layout%
 label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
+
+layout-icon-default = ¯\_(ツ)_/¯
+layout-icon-0 = us;us
+layout-icon-1 = jp;jp
+
+indicator-icon-default = ""
+indicator-icon-0 = caps lock;;CL
+
+label-layout = %icon%
+
+label-indicator-on = %icon%
+label-indicator-off = %icon%
+
 
 [module/filesystem]
 type = internal/fs
