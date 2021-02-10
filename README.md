@@ -10,4 +10,6 @@ list of my own dotfiles using [rcm](https://thoughtbot.com/blog/rcm-for-rc-files
 * rofi
 * vim
 * zsh
+* kitty
+* amfora
 
