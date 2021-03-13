@@ -5,7 +5,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/orang/.zshrc'
+#zstyle :compinstall filename '/home/orang/.zshrc'
 
 
 # Zsh git prompt
@@ -30,21 +30,27 @@ precmd(){
         }
 }
 
-# Package Manager aliases
+### Enviroment variable
+export XDG_TEMPLATES_DIR="$HOME/Templates"
+
+### MANPAGER
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+### Package Manager
 alias pacsyu="sudo pacman -Syu"
 alias pacs="sudo pacman -S"
 alias pacu="sudo pacman -U"
 alias pacr="sudo pacman -R"
 alias pacrcn="sudo pacman -Rcn"
 
-# Directory
+### Directory
 alias uri="cd ~/Code/URI"
 alias docs="cd ~/Code/Docs"
 alias dots="cd ~/.dotfiles"
 alias pict="cd ~/Pictures"
 alias dl="cd ~/Downloads"
 
-# Edit File
+### Edit File
 alias zshrc="vim ~/.zshrc"
 alias i3conf="vim ~/.config/i3/config"
 alias alacrittyconf="vim ~/.config/alacritty/alacritty.yml"
@@ -52,19 +58,20 @@ alias picomconf="sudo vim /etc/xdg/picom.conf"
 alias vimrc="vim ~/.vimrc"
 alias polybarconf="vim ~/.config/polybar/config"
 alias kittyconf="vim ~/.config/kitty/kitty.conf"
+alias uspy="vim ~/.config/coc/ultisnips/python.snippets"
 
-# Another
+### Another
 alias savez="source ~/.zshrc"
 alias 8="ping 8.8.8.8"
 alias net="systemctl status NetworkManager"
 alias svg="feh --conversion-timeout 1"
 alias enofetch="neofetch"
 
-# Hardware
+### Hardware
 alias cpuspd="watch -n.5 \"cat /proc/cpuinfo | grep -i mhz\""
 alias brightness="brightnessctl -d amdgpu_bl0 set"
 
-# Changed default command
+### Changed default command
 alias ls="ls -l --color=auto"
 alias lsa="ls -a"
 alias v="vim"
@@ -76,7 +83,7 @@ alias cat="bat"
 alias find="fd"
 alias ps="procs"
 
-# Git
+### Git
 alias g="git"
 alias ga="git add"
 alias gb="git branch"

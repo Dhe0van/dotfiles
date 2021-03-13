@@ -1,95 +1,83 @@
-syntax on
-set number
-set noshowmode
-set noswapfile
-set incsearch
+" Var
+set number 
+set termguicolors
+set noshowmode 
+set noswapfile 
+set incsearch 
 set t_Co=256
 set background=dark
-" set list lcs=tab:\|\
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
+set tabstop=8 
+set softtabstop=4 
+set shiftwidth=4 
 set expandtab 
 
 " Tab
-noremap<C-t> :tabnew<return>
-noremap<C-l> :tabn<return>
-noremap<C-h> :tabp<return>
-noremap<C-k> :tabr<return>
-noremap<C-j> :tabl<return>
-noremap <C-a> :tabc<return>
-noremap <C-S>t :term<return>
+noremap <M-t> :tabnew<return> 
+noremap <M-l> :tabn<return> 
+noremap <M-h> :tabp<return> 
+noremap <M-k> :tabr<return> 
+noremap <M-j> :tabl<return> 
+noremap <M-w> :tabc<return> 
 
-map <C-s> :w<return>
-cmap <C-s> source %<return>
+" Resize
+noremap <C-h> :vertical resize +5<return>
+noremap <C-l> :vertical resize -5<return>
+noremap <C-j> :resize -5<return>
+noremap <C-k> :resize +5<return>
+
+" make use of ALT key
+for i in range(97,122)
+  let c = nr2char(i)
+  exec "map \e".c." <M-".c.">"
+  exec "map! \e".c." <M-".c.">"
+endfor
+
+" Shortcut
+map <C-s> :w<return> 
+map t :term<return>
+cmap <C-s> source %<return> 
 cmap <C-x> %!xclip -sel clip<return>
-
-" Automatically add closing
-inoremap {<CR> {<CR>}<Esc>ko
-inoremap {<Space><Space> {}<Esc>i
-inoremap <<Space><Space> <><Esc>i
-inoremap [ []<Esc>i
-inoremap ( ()<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-
-" exit normal mode
 inoremap jj <Esc>
 
-" Custom snippets
-inoremap cpp; #include <iostream><return>using namespace std;<return><return>int main() {<return><return>}<Esc>ki<Tab>
-inoremap pas; begin<return><return><C-w>end.<Esc>ki<Tab>
-
-" plugins list
+" Plugins list
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'itchyny/lightline.vim' 
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'mattn/emmet-vim'
-Plug 'turbio/bracey.vim'
 Plug 'sainnhe/sonokai'
-Plug 'sheerun/vim-polyglot'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'vim-python/python-syntax'
+Plug 'arzg/vim-sh'
+Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+" Plug 'turbio/bracey.vim'
 
 call plug#end()
 
-if has('termguicolors')
-  set termguicolors
-endif
-
-" The configuration options should be placed before `colorscheme sonokai`.
+" *sonokai
 let g:sonokai_style = 'shusia'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
 let g:sonokai_better_performance = 1
 colorscheme sonokai
 
-" Lighline
+" *lighline
 set laststatus=2
 let g:lightline = {'colorscheme' : 'sonokai'}
 
-" nerdcommenter plugin configuration
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
+" *python syntax
+let g:python_highlight_all = 1
 
-" emmet vim
-let g:user_emmet_leader_key='<C-K>'
+" *emmet
 let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<C-Z>'
 autocmd FileType html,css EmmetInstall
+
+" *coc-snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<c-k>'
