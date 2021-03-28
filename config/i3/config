@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -46,8 +47,7 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 
 #bindsym XF86MonBrightnessUp exec "sudo brightnessctl -d "amdgpu_bl0" set; notify-send 'brightness up'"
 
-# Mouse + $mod to drag floating windows
-floating_modifier $mod
+floating_modifier $alt
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -58,6 +58,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -nb '#42526C' -sb '#fff' -sf '#000' -fn 'monospace'
 bindsym $mod+d exec rofi -show  drun
+bindsym $mod+Shift+d exec rofi -show run
 
 # Display all window with rofi
 bindsym $mod+Tab exec rofi -show window 
@@ -219,7 +220,7 @@ client.urgent		$base02		 $base08	$base07 	 #fc0303
 # Remove The border active color of active window
 hide_edge_borders both
 
-# Execute this when user login
+# Startup program
 exec_always sct 2000
 exec_always xinput --set-prop 'SYNA0001:00 06CB:CE2D Touchpad' 'libinput Tapping Enabled' 1
 exec_always xinput --set-prop 'SYNA0001:00 06CB:CE2D Touchpad' 'libinput Accel Speed' 0.4
@@ -240,8 +241,11 @@ gaps outer 3
 # custom keybind for some applications
 bindsym $mod+b exec brave
 bindsym $mod+Shift+Return exec kitty -e ranger
+bindsym $alt+f exec nemo
+
+# Shortcut
 bindsym XF86MonBrightnessUp exec "brightnessctl -d amdgpu_bl0 set 8+"
 bindsym XF86MonBrightnessDown exec "brightnessctl -d amdgpu_bl0 set 8-"
 bindsym $mod+XF86MonBrightnessUp exec "brightnessctl -d amdgpu_bl0 set 9%"
 bindsym $mod+XF86MonBrightnessDown exec "brightnessctl -d amdgpu_bl0 set 0%"
-bindsym Mod1+f exec nemo
+bindsym $alt+Tab workspace back_and_forth

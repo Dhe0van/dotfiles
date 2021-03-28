@@ -1,3 +1,6 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 " Var
 set number 
 set cursorline
@@ -14,12 +17,12 @@ set expandtab
 set mouse=a
 
 " Tab
-noremap <M-t> :tabnew<return> 
-noremap <M-l> :tabn<return> 
-noremap <M-h> :tabp<return> 
-noremap <M-k> :tabr<return> 
-noremap <M-j> :tabl<return> 
-noremap <M-w> :tabc<return> 
+noremap <silent> <M-t> :tabnew<return> 
+noremap <silent> <M-l> :tabn<return> 
+noremap <silent> <M-h> :tabp<return> 
+noremap <silent> <M-k> :tabr<return> 
+noremap <silent> <M-j> :tabl<return> 
+noremap <silent> <M-w> :tabc<return> 
 
 " Swap Tab
 noremap <M-Right> :+tabm<return>
@@ -40,12 +43,11 @@ endfor
 
 " Shortcut
 noremap <C-s> :w<return> 
-noremap t :term<return>
 cmap <C-s> source %<return> 
 map <C-x> :%!xclip -sel clip<return>
 inoremap jj <Esc>
-map <C-m> :set mouse=a<return>
-map <M-m> :set mouse=""<return>
+map <silent> <C-m> :set mouse=a<return>
+map <silent> <M-m> :set mouse=""<return>
 
 " Plugins list
 call plug#begin('~/.vim/plugged')
@@ -61,10 +63,25 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'mboughaba/i3config.vim'
 Plug 'morhetz/gruvbox'
+Plug 'brooth/far.vim'
+Plug 'kyazdani42/nvim-web-devicons' 
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 "Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'turbio/bracey.vim'
 
 call plug#end()
+
+" *nvim-tree.lua
+source ~/.config/nvim/plugins_conf/nvim-tree.vim
+
+" *telescope.nvim
+nnoremap ff <cmd>Telescope find_files<cr>
+nnoremap fg <cmd>Telescope live_grep<cr>
+nnoremap fb <cmd>Telescope buffers<cr>
+nnoremap fh <cmd>Telescope help_tags<cr>
 
 " *lightline
 set laststatus=2
@@ -94,3 +111,25 @@ aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
+" *far-vim
+"let g:far#enable_undo=1
+
+" terminal buffer
+noremap <silent> t :sp <CR> :term <CR> :set nonumber <CR> a
+
+" For navigating between terminal buffer and another window buffer
+" Source: https://www.reddit.com/r/neovim/comments/9sm1bp/how_to_switch_between_windows_in_terminal_mode/ (u/mtszyk)
+if has('nvim')
+  augroup vimrc_term
+    autocmd!
+    autocmd WinEnter term://* nohlsearch
+    autocmd WinEnter term://* startinsert
+
+    autocmd TermOpen * tnoremap <buffer> <C-h> <C-\><C-n><C-w>h
+    autocmd TermOpen * tnoremap <buffer> <C-j> <C-\><C-n><C-w>j
+    autocmd TermOpen * tnoremap <buffer> <C-k> <C-\><C-n><C-w>k
+    autocmd TermOpen * tnoremap <buffer> <C-l> <C-\><C-n><C-w>l
+    autocmd TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
+  augroup END
+endif

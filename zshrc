@@ -5,7 +5,7 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-#zstyle :compinstall filename '/home/orang/.zshrc'
+zstyle :compinstall filename '/home/orang/.zshrc'
 
 
 # Zsh git prompt
@@ -32,6 +32,7 @@ precmd(){
 
 ### Enviroment variable
 export XDG_TEMPLATES_DIR="$HOME/Templates"
+export TERM="xterm-256color"
 
 ### MANPAGER
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -51,14 +52,16 @@ alias pict="cd ~/Pictures"
 alias dl="cd ~/Downloads"
 
 ### Edit File
-alias zshrc="vim ~/.zshrc"
-alias i3conf="vim ~/.config/i3/config"
-alias alacrittyconf="vim ~/.config/alacritty/alacritty.yml"
-alias picomconf="sudo vim /etc/xdg/picom.conf"
-alias vimrc="vim ~/.vimrc"
-alias polybarconf="vim ~/.config/polybar/config"
-alias kittyconf="vim ~/.config/kitty/kitty.conf"
-alias uspy="vim ~/.config/coc/ultisnips/python.snippets"
+alias zshrc="nvim ~/.zshrc"
+alias i3conf="nvim ~/.config/i3/config"
+alias alacrittyconf="nvim ~/.config/alacritty/alacritty.yml"
+alias picomconf="sudo nvim /etc/xdg/picom.conf"
+alias vimrc="nvim ~/.vimrc"
+alias polybarconf="nvim ~/.config/polybar/config"
+alias kittyconf="nvim ~/.config/kitty/kitty.conf"
+alias uspy="nvim ~/.config/coc/ultisnips/python.snippets"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
+
 
 ### Another
 alias savez="source ~/.zshrc"
