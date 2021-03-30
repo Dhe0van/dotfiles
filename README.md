@@ -9,7 +9,8 @@ list of my own dotfiles using [rcm](https://thoughtbot.com/blog/rcm-for-rc-files
 * polybar
 * rofi
 * vim
+* nvim
 * zsh
 * kitty
 * amfora
-
+* qutebrowser

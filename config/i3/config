@@ -239,7 +239,8 @@ gaps inner 5
 gaps outer 3
 
 # custom keybind for some applications
-bindsym $mod+b exec brave
+bindsym $mod+Shift+b exec brave
+bindsym $mod+b exec qutebrowser
 bindsym $mod+Shift+Return exec kitty -e ranger
 bindsym $alt+f exec nemo
 
