@@ -61,7 +61,8 @@ alias polybarconf="nvim ~/.config/polybar/config"
 alias kittyconf="nvim ~/.config/kitty/kitty.conf"
 alias uspy="nvim ~/.config/coc/ultisnips/python.snippets"
 alias nvimrc="nvim ~/.config/nvim/init.vim"
-
+alias quteconf="nvim ~/.config/qutebrowser/config.py"
+alias bookmark="nvim ~/.config/qutebrowser/bookmarks/urls"
 
 ### Another
 alias savez="source ~/.zshrc"

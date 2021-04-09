@@ -69,6 +69,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'vimlab/split-term.vim'
 "Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'turbio/bracey.vim'
 
@@ -113,10 +114,10 @@ aug i3config_ft_detection
 aug end
 
 " *far-vim
-"let g:far#enable_undo=1
+let g:far#enable_undo=1
 
-" terminal buffer
-noremap <silent> t :sp <CR> :term <CR> :set nonumber <CR> a
+" *split-term
+noremap <silent> t :Term<enter>
 
 " For navigating between terminal buffer and another window buffer
 " Source: https://www.reddit.com/r/neovim/comments/9sm1bp/how_to_switch_between_windows_in_terminal_mode/ (u/mtszyk)
